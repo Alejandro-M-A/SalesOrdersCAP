@@ -2,17 +2,14 @@ using ManageOrders as service from '../../srv/orders.service';
 
 annotate service.Header with @(
     UI.SelectionFields: [
-FirstName,
-LastName
+        FirstName,
+        LastName
     ],
-
-    Capabilities : [{
-        InsertRestrictions: {
-            $Type: 'Capabilities.InsertRestrictionsType',
-            Insertable
-        }
-    },],
-    
+    UI.HeaderInfo     : {
+        $Type         : '',
+        TypeName      : 'Order',
+        TypeNamePlural: 'Orders',
+    },
     UI.LineItem       : [
         {
             $Type: 'UI.DataField',
@@ -93,10 +90,52 @@ annotate service.Header with @(
             },
         ],
     },
-    UI.Facets                     : [{
-        $Type : 'UI.ReferenceFacet',
-        ID    : 'GeneratedFacet1',
-        Label : 'General Information',
-        Target: '@UI.FieldGroup#GeneratedGroup1',
-    }, ]
+    UI.Facets                     : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet1',
+            Label : 'General Information',
+            Target: '@UI.FieldGroup#GeneratedGroup1',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet2',
+            Label : 'General Information',
+            Target: 'Items/@UI.LineItem',
+        },
+    ]
+);
+
+annotate service.Item with @(
+    UI.PresentationVariant: {
+        SortOrder     : [ //Default sort order
+        {
+            Property  : Name,
+            Descending: true,
+        }, ],
+        Visualizations: ['@UI.LineItem'],
+    },
+    UI.HeaderInfo         : {
+        $Type         : '',
+        TypeName      : 'Item',
+        TypeNamePlural: 'Items',
+    },
+    UI.LineItem           : [
+        {
+            $Type: 'UI.DataField',
+            Value: Name
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Description
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Price
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Quantity
+        }
+    ]
 );

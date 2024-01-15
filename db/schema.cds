@@ -1,7 +1,11 @@
 namespace com.ama.logali;
 
-entity Header {
-    key ID           : String(36);
+using {
+    cuid,
+    managed
+} from '@sap/cds/common';
+
+entity Header : cuid, managed {
         Email        : String(30) @mandatory;
         FirstName    : String(30);
         LastName     : String;
@@ -15,8 +19,7 @@ entity Header {
 
 }
 
-entity Items {
-    key ID               : String(36);
+entity Items  : cuid, managed {
         Name             : String(40);
         Description      : String(40);
         ReleaseDate      : Date;

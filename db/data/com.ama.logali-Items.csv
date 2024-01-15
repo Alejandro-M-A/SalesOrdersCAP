@@ -1,2 +1,5 @@
-ID,Name,Description,ReleaseDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity
-142567845125,Nombre1,Descripcon1,2022-01-13,2022-01-13,2.5,5,10,8,20
+ID,Name,Description,ReleaseDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity,Header_ID
+cdc98f7f-ff6d-4411-bcb4-f052c9a02920,Nombre1,Descripcon1,2022-01-13,2022-01-13,2.5,5,10,8,20,e0fd401a-37db-4e2a-881b-34909398d40f
+1015d7ff-03bd-4355-9704-70765b61edfe,Nombre2,Descripcon1,2022-01-13,2022-01-13,2.5,5,10,8,20,e0fd401a-37db-4e2a-881b-34909398d40f
+28a86340-1091-456a-b24e-a8be89a8abc4,Nombre3,Descripcon1,2022-01-13,2022-01-13,2.5,5,10,8,20,e0fd401a-37db-4e2a-881b-34909398d40f
+c7edf672-9d6b-4b6a-9c32-d6cba8c4c145,Nombre4,Descripcon1,2022-01-13,2022-01-13,2.5,5,10,8,20,e0fd401a-37db-4e2a-881b-34909398d40f
