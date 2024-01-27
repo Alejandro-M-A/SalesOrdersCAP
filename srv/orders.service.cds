@@ -20,7 +20,7 @@ service ManageOrders {
 
      as select from logali.Header;
      annotate Header with @odata.draft.enabled;
-    entity Item @( 
+    entity Items @( 
         Capabilities : {
             InsertRestrictions : {
                 $Type : 'Capabilities.InsertRestrictionsType',
@@ -36,6 +36,5 @@ service ManageOrders {
             },
         },
     )as projection on logali.Items;
-    annotate Item with @odata.draft.enabled;
     
 }
