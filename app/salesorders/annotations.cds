@@ -26,7 +26,7 @@ annotate service.Header with @(
         TypeNamePlural: 'Sales Orders',
         Title         : {
             $Type: 'UI.DataField',
-            Value: Email,
+            Value: ID,
         },
         Description   : {
             $Type: 'UI.DataField',
