@@ -8,17 +8,17 @@ annotate service.Header with {
 }
 
 annotate service.Header with @(
-    // SemanticKey
+
     Common.SemanticKey     : [ID],
 
-    // Filters
+    // Table Filters
     UI.SelectionFields     : [
         Email,
         FirstName,
         LastName
     ],
 
-    // Header
+
     UI.HeaderInfo          : {
         $Type         : '',
         ImageUrl      : ImageUrl,
@@ -40,7 +40,7 @@ annotate service.Header with @(
         Visualizations: ['@UI.LineItem'],
     },
 
-    // Table
+
     UI.LineItem            : [
         {
             $Type: 'UI.DataField',
@@ -139,11 +139,11 @@ annotate service.Header with @(
 );
 
 annotate service.Items with @(
-    // Table sort order
+  
     UI.PresentationVariant: {
-        SortOrder     : [ //Default sort order
+        SortOrder     : [ 
         {
-            Property  : Price,
+            Property  : Name,
             Descending: true,
         }, ],
         Visualizations: ['@UI.LineItem'],
@@ -165,7 +165,7 @@ annotate service.Items with @(
         }
     },
 
-    // Table
+
     UI.LineItem           : [
         {
             $Type: 'UI.DataField',
@@ -189,7 +189,6 @@ annotate service.Items with @(
         }
     ],
 
-    // Facets
     UI.FieldGroup #GroupA : {
         $Type: 'UI.FieldGroupType',
         Data : [
