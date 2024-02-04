@@ -34,7 +34,6 @@ annotate service.Header with @(
         },
     },
 
-    // Table sort order
     UI.PresentationVariant : {
         SortOrder     : [
                         {Property: Email}, ],
