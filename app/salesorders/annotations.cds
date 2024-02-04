@@ -1,4 +1,5 @@
 using ManageOrders as service from '../../srv/orders.service';
+
 annotate service.Header with {
     OrderStatus @title: 'Status';
     FirstName   @title: 'Name';
@@ -9,17 +10,17 @@ annotate service.Header with {
 
 annotate service.Header with @(
 
-    Common.SemanticKey     : [ID],
+    Common.SemanticKey    : [ID],
 
     // Table Filters
-    UI.SelectionFields     : [
+    UI.SelectionFields    : [
         Email,
         FirstName,
         LastName
     ],
 
 
-    UI.HeaderInfo          : {
+    UI.HeaderInfo         : {
         $Type         : '',
         ImageUrl      : ImageUrl,
         TypeName      : 'Sales Order',
@@ -34,14 +35,13 @@ annotate service.Header with @(
         },
     },
 
-    UI.PresentationVariant : {
-        SortOrder     : [
-                        {Property: Email}, ],
+    UI.PresentationVariant: {
+        SortOrder     : [{Property: Email}, ],
         Visualizations: ['@UI.LineItem'],
     },
 
 
-    UI.LineItem            : [
+    UI.LineItem           : [
         {
             $Type: 'UI.DataField',
             Value: Email,
@@ -79,7 +79,7 @@ annotate service.Header with @(
     ],
 
     // Facets
-    UI.FieldGroup #GroupA  : {
+    UI.FieldGroup #GroupA : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -124,7 +124,7 @@ annotate service.Header with @(
             }
         ]
     },
-    UI.Facets              : [
+    UI.Facets             : [
         {
             $Type : 'UI.ReferenceFacet',
             Label : 'Header Detail',
@@ -139,10 +139,9 @@ annotate service.Header with @(
 );
 
 annotate service.Items with @(
-  
+
     UI.PresentationVariant: {
-        SortOrder     : [ 
-        {
+        SortOrder     : [{
             Property  : Name,
             Descending: true,
         }, ],
@@ -186,18 +185,23 @@ annotate service.Items with @(
             $Type: 'UI.DataField',
             Value: Quantity,
             Label: 'Quantity'
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: ReleaseDate,
+            Label: 'Release Date'
         }
     ],
 
     UI.FieldGroup #GroupA : {
         $Type: 'UI.FieldGroupType',
         Data : [
-                       {
+            {
                 $Type: 'UI.DataField',
                 Value: Name,
                 Label: 'Name'
             },
-                       {
+            {
                 $Type: 'UI.DataField',
                 Value: Description,
                 Label: 'Description'
@@ -239,11 +243,9 @@ annotate service.Items with @(
             }
         ]
     },
-    UI.Facets             : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'Item Detail',
-            Target: ![@UI.FieldGroup#GroupA]
-        }
-    ]
+    UI.Facets             : [{
+        $Type : 'UI.ReferenceFacet',
+        Label : 'Item Detail',
+        Target: ![@UI.FieldGroup#GroupA]
+    }]
 );
