@@ -21,6 +21,7 @@ annotate service.Header with @(
     // Header
     UI.HeaderInfo          : {
         $Type         : '',
+        ImageUrl      : ImageUrl,
         TypeName      : 'Sales Order',
         TypeNamePlural: 'Sales Orders',
         Title         : {
@@ -29,15 +30,14 @@ annotate service.Header with @(
         },
         Description   : {
             $Type: 'UI.DataField',
-            Value: CreatedOn
+            Value: FirstName
         },
-        ImageUrl      : ImageUrl
     },
 
     // Table sort order
     UI.PresentationVariant : {
         SortOrder     : [
-                        {Property: CreatedOn}, ],
+                        {Property: Email}, ],
         Visualizations: ['@UI.LineItem'],
     },
 
@@ -45,8 +45,8 @@ annotate service.Header with @(
     UI.LineItem            : [
         {
             $Type: 'UI.DataField',
-            Value: CreatedOn,
-            Label: 'Date'
+            Value: Email,
+            Label: 'Email'
         },
         {
             $Type: 'UI.DataField',
@@ -65,7 +65,8 @@ annotate service.Header with @(
         },
         {
             $Type: 'UI.DataField',
-            Value: Email
+            Value: createdAt,
+            Label: 'Created On'
         },
         {
             $Type: 'UI.DataField',
@@ -74,7 +75,7 @@ annotate service.Header with @(
         {
             $Type: 'UI.DataField',
             Value: DeliveryDate,
-            Label: 'Estimated delivery'
+            Label: 'Delivery'
         },
     ],
 
